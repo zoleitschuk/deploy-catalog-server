@@ -215,6 +215,7 @@ The following is a list of resources that I found exceptionally useful throughou
 
 * [Digitial Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps) - How To Deploy a Flask Application on an Ubuntu VPS
 * [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu) - How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu
-* [linkname](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-apache-mysql-and-python-lamp-server-without-frameworks-on-ubuntu-14-04) - How To Set Up an Apache, MySQL, and Python (LAMP) Server Without Frameworks on Ubuntu 14.04
+* [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-apache-mysql-and-python-lamp-server-without-frameworks-on-ubuntu-14-04) - How To Set Up an Apache, MySQL, and Python (LAMP) Server Without Frameworks on Ubuntu 14.04
+* [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-setup-a-firewall-with-ufw-on-an-ubuntu-and-debian-cloud-server) - How To Setup a Firewall with UFW on an Ubuntu and Debian Cloud Server
 * [Abigail Mathews](https://github.com/AbigailMathews/FSND-P5) - github repository
 
