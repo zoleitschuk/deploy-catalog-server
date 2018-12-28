@@ -27,8 +27,10 @@ sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get dist-upgrade
 ```
-6. Change ssh port from default port 20 to port 2200.
-`sudo nano /etc/ssh/sshd_config`
+6. Change ssh port from default port 20 to port 2200, and change PermitRootLogin from the defualt prohibit-password to no.
+```
+sudo nano /etc/ssh/sshd_config
+```
 7. Update firewall to limit ports.
 ```
 sudo ufw status
