@@ -108,11 +108,9 @@ sudo mkdir /var/www/catalog
 sudo mkdir /var/www/catalog/catalog
 cd /var/www/catalog/catalog/
 ```
-23. Clone flask app into /var/www/catalog/catalog/
-``
-24. Create a config file for Apache.
+23. Create a config file for Apache.
 `sudo nano /etc/apache2/sites-available/catalog.conf`
-25. Paste the following into the newly created config file and save.
+24. Paste the following into the newly created config file and save.
 ```
 <VirtualHost *:80>
                 ServerName mywebsite.com (i.e.--><publicIP>)
@@ -132,13 +130,13 @@ cd /var/www/catalog/catalog/
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 ```
-26. Disable the default Apache sight, enable the new one, and reload the service for changes to take effect.
+25. Disable the default Apache sight, enable the new one, and reload the service for changes to take effect.
 ```
 sudo a2dissite 000-default
 sudo a2ensite catalog
 sudo service apache2 reload
 ```
-27. Install postgres and set postgres user's password.
+26. Install postgres and set postgres user's password.
 ```			
 sudo apt-get install postgresql
 sudo nano /etc/postgresql/9.5/main/pg_hba.conf
@@ -166,18 +164,38 @@ GRANT ALL ON SCHEMA public TO catalog;
 su <new-user-name>
 sudo service postgresql restart
 ```
+29. Configure the timezone to UTC.
+```
+sudo dpkg-reconfigure tzdata
+```
+Select UTC by first selecting No region, and then UTC.
 
 ### Deploy Server
-
-
+30. Clone flask app.
+`sudo git clone https://github.com/zoleitschuk/item-catalog.git`
+31. If you did not clone the repo into the `/var/www/catalog/catalog` move all files from cloned directory to that location.
+32. Rename the `application.py` file to '__init__.py` and change code to match:
+```
+if(__name__ == '__main__'):
+    app.run()
+```
+33. Update `__init__.py`, `models.py`, and `populate_db.py` to use:
+```
+engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
+```
+34. Change the filepath of the clients secrets in `__init__.py` to use the full filepath:
+```
+/var/www/catalog/catalog/client_secrets.json
+```
+35. Run `python3 models.py` to update the catalog database to match the models defined by models.py.
+36. Run `python3 populate_db.py` to populate the catalog database with some initial data.
 
 ## Built With
 
-* [Knockout](https://knockoutjs.com/) - JavaScript Framework for MVVC management.
-* [Google Maps](https://developers.google.com/maps/documentation/) - Googl Maps API
-* [FourSquare](https://developer.foursquare.com/docs/api) - 3rd Party API for providing additional location data
-* [Bootstrap](https://getbootstrap.com/docs/4.0/getting-started/introduction/) - Styling Framework
-* [jQuery](http://api.jquery.com/jQuery/) - JavaScript Framework
+* [Flask](http://flask.pocoo.org/)
+* [Apache](https://httpd.apache.org/docs/2.4/programs/apachectl.html)
+* [Amazon Lightsail](https://aws.amazon.com/lightsail/)
+* [Ubuntu](https://www.ubuntu.com/)
 
 ## Authors
 
@@ -190,3 +208,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 This project was created as part of the required course work for the [Udacity Full-Stack Nanodegree](https://www.udacity.com/course/full-stack-web-developer-nanodegree--nd004).
+
+### Resources
+
+The following is a list of resources that I found exceptionally useful throughout the execution of this project.
+
+* [Digitial Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps) - How To Deploy a Flask Application on an Ubuntu VPS
+* [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu) - How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu
+* [linkname](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-apache-mysql-and-python-lamp-server-without-frameworks-on-ubuntu-14-04) - How To Set Up an Apache, MySQL, and Python (LAMP) Server Without Frameworks on Ubuntu 14.04
+* [Abigail Mathews](https://github.com/AbigailMathews/FSND-P5) - github repository
+
