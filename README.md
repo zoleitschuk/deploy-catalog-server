@@ -215,6 +215,8 @@ This project was created as part of the required course work for the [Udacity Fu
 
 The following is a list of resources that I found exceptionally useful throughout the execution of this project.
 
+* [Ubuntu](http://manpages.ubuntu.com/manpages/xenial/en/man5/sshd_config.5.html) - sshd_config docs
+* [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-tune-your-ssh-daemon-configuration-on-a-linux-vps) - How To Tune your SSH Daemon Configuration on a Linux VPS
 * [Digitial Ocean](https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps) - How To Deploy a Flask Application on an Ubuntu VPS
 * [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-install-linux-apache-mysql-php-lamp-stack-on-ubuntu) - How To Install Linux, Apache, MySQL, PHP (LAMP) stack on Ubuntu
 * [Digital Ocean](https://www.digitalocean.com/community/tutorials/how-to-set-up-an-apache-mysql-and-python-lamp-server-without-frameworks-on-ubuntu-14-04) - How To Set Up an Apache, MySQL, and Python (LAMP) Server Without Frameworks on Ubuntu 14.04
